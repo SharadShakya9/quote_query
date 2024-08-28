@@ -1,16 +1,16 @@
 import { useEffect, useState } from "react";
 import "./App.css";
 import { data } from "./data";
-import Card from "./components/card";
 import Title from "./components/Title";
+import Grid from "./components/Grid";
 
 function App() {
   const [quotes, setQuotes] = useState([]);
 
   const [searchData, setSearchData] = useState("");
 
-  const handleData = (poke) => {
-    setQuotes(poke);
+  const handleData = (data) => {
+    setQuotes(data);
   };
 
   const handleSearch = (e) => {
@@ -29,13 +29,13 @@ function App() {
     <div className="m-5 flex flex-col justify-center items-center gap-8">
       <Title />
 
-      <div className="flex w-[70%] h-[48px] rounded-3xl px-8 bg-gray-200 gap-5 items-center border border-black">
+      <div className="flex w-[70%] h-[56px] rounded-3xl px-8 bg-gray-200 gap-5 items-center border border-black">
         <label className="bg-transparent" htmlFor="filter">
-          Items
+          <p className="tracking-wider font-medium text-[#658439] text-2xl">Quote</p>
         </label>
-        <div className="w-4 border-[0.5px] border-black rotate-90" />
+        <div className="w-8 border-[0.5px] border-[#abd373] rotate-90" />
         <input
-          className="focus-visible:outline-none bg-transparent"
+          className="focus-visible:outline-none bg-transparent tracking-wider font-medium text-gray-800 text-xl"
           type="text"
           id="filter"
           placeholder="Search..."
@@ -43,13 +43,7 @@ function App() {
         />
       </div>
 
-      <div className="grid grid-cols-3">
-        {filteredItems.map((item) => (
-          <div key={item.id}>
-            <Card quote={item.quote} author={item.author} />
-          </div>
-        ))}
-      </div>
+      <Grid items={filteredItems}/>
     </div>
   );
 }
