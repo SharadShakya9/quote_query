@@ -3,6 +3,7 @@ import "./App.css";
 import { data } from "./data";
 import Title from "./components/Title";
 import Grid from "./components/Grid";
+import GoToTop from "./components/GoToTop";
 
 function App() {
   const [quotes, setQuotes] = useState([]);
@@ -26,12 +27,14 @@ function App() {
   );
 
   return (
-    <div className="m-5 flex flex-col justify-center items-center gap-8">
+    <div className="relative m-5 flex flex-col justify-center items-center gap-8">
       <Title />
 
       <div className="flex w-[70%] h-[56px] rounded-3xl px-8 bg-gray-200 gap-5 items-center border border-black">
         <label className="bg-transparent" htmlFor="filter">
-          <p className="tracking-wider font-medium text-[#658439] text-2xl">Quote</p>
+          <p className="tracking-wider font-medium text-[#658439] text-2xl">
+            Quote
+          </p>
         </label>
         <div className="w-8 border-[0.5px] border-[#abd373] rotate-90" />
         <input
@@ -43,7 +46,9 @@ function App() {
         />
       </div>
 
-      <Grid items={filteredItems}/>
+      <Grid items={filteredItems} />
+
+      <GoToTop />
     </div>
   );
 }
