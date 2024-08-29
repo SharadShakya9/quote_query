@@ -61,8 +61,8 @@ function App() {
         </div>
       </div>
 
-      {quotes.length === 0 ? (
-        <p>No quotes found</p>
+      {filteredItems.length === 0 ? (
+        <p className="font-semibold text-gray-200 tracking-wider">No quotes found</p>
       ) : (
         <Grid items={filteredItems} />
       )}
